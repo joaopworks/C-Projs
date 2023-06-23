@@ -1,0 +1,104 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class randomizer{
+    
+    private:
+
+        int escolha[3];
+        int random;
+        string cara="cara", coroa="coroa";
+        string pause;
+
+    public:
+
+        randomizer()
+        {
+            label:
+            system("clear");
+            cout<<"--Cara ou Coroa--\r\n";
+            cout<<"Acha que pode vencer o computador ?\n\n1-Cara | 2- Coroa\n\n";
+            cin >> escolha[1];
+
+            switch(escolha[1])
+            {
+                case 1:
+
+                    system("clear");
+                    cout<<"--Voce escolheu "<< cara <<"--\r\n";
+
+                    cout<<"\n\nPressione qualquer tecla para continuar...\r\n\n";
+                    cin>> pause ;
+
+                    escolha[2] = rand()%2;
+
+                    if(escolha[2] == 0)
+                    {
+                        system("clear");
+                        cout<<"--Deu "<<cara<<" voce venceu--\r\n";
+
+                        cout<<"\n\nPressione qualquer tecla para continuar...\r\n\n";
+                        cin>> pause ;
+                    }
+                    else if(escolha [2] == 1)
+                    {
+                        system("clear");
+                        cout<<"--Deu "<<coroa<<" voce perdeu--\r\n";
+
+                        cout<<"\n\nPressione qualquer tecla para continuar...\r\n\n";
+                        cin>> pause ;
+                    }
+
+                    break;
+
+                case 2:
+
+                    system("clear");
+                    cout<<"--Voce escolheu "<< coroa <<"--\r\n";
+
+                    cout<<"\n\nPressione qualquer tecla para continuar...\r\n\n";
+                    cin>> pause ;
+
+
+                    escolha[2] = rand()%2;
+
+                    if(escolha[2] == 0)
+                    {
+                        system("clear");
+                        cout<<"--Deu "<<coroa<<" voce venceu--\r\n";
+
+                        cout<<"\n\nPressione qualquer tecla para continuar...\r\n\n";
+                        cin>> pause ;
+                    }
+                    else if(escolha [2] == 1)
+                    {
+                        system("clear");
+                        cout<<"--Deu "<<cara<<" voce perdeu--\r\n";
+
+                        cout<<"\n\nPressione qualquer tecla para continuar...\r\n\n";
+                        cin>> pause ;
+                    }
+
+                    break;
+
+            }
+
+            system("clear");
+            cout<<"--Deseja jogar novamente?--\n1-Jogar denovo\n2-Sair\r\n";
+            int chose;
+            cin>>chose;
+            if(chose == 1)
+            {
+                goto label;
+            }
+        }
+};
+
+int main()
+{
+    randomizer();
+
+    return 0;
+}
